@@ -29,6 +29,7 @@ def input_validation(regex_exp, value) -> bool:
     return False
 
 def validate(prompts, regular_exp):
+    '''taking input and pass to input validation'''
     while True:
         value = input(prompts).lower()
         check = input_validation(regular_exp, value)
