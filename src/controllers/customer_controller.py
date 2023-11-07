@@ -54,7 +54,7 @@ class BookPackage:
         '''Books the package for a customer'''
         total_price = int(self.number_of_people) * self.price
         package = (self.package_id, self.customer_id, self.booking_id, total_price, 'ongoing')
-        database_access.insert_table(Query.INSERT_BOOKING, booking, Query.INSERT_BOOKING_PACKAGE, package, PrintPrompts.BOOKED_SUCCESSFULLY.format(self.price, self.booking_id))
+        database_access.insert_table(Query.INSERT_BOOKING, booking, Query.INSERT_BOOKING_PACKAGE, package, PrintPrompts.BOOKED_SUCCESSFULLY.format(total_price, self.booking_id))
         logger.info(LoggingPrompt.BOOKED)
         
 

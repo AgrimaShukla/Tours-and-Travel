@@ -133,13 +133,6 @@ class PrintPrompts:
 
       USER_EXISTS = "USER ALREADY EXISTS"
 
-      USERNAME_PROMPT = '''
-            USERNAME MUST CONTAIN:
-            1) UPPERCASE
-            2) NUMBER
-            3) SPECIAL CHARACTER
-      '''
-
       USER_MENU = '''
             SELECT ANY OPTION:
             1) BOOK PACKAGE

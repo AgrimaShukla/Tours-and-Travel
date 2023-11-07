@@ -76,6 +76,6 @@ class Itinerary:
                     database_access.non_returning_query(Query.UPDATE_ITINERARY_QUERY.format(column_name), (updated_value, itinerary_id), PrintPrompts.UPDATED)
                     break
                 else:
-                    print(PrintPrompts.NO_ITINERARY.format(value))
+                    print(PrintPrompts.NO_ITINERARY.format(itinerary_id))
         else:
             print(PrintPrompts.NO_ITINERARY_FOUND)

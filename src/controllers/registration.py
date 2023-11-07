@@ -16,7 +16,6 @@ class Registration:
     '''Registering the customer'''
     def __init__(self) -> None:
         while True:
-            print(PrintPrompts.USERNAME_PROMPT)
             self.username = validation.validate(InputPrompts.INPUT.format("username"), RegularExp.USERNAME)
             print(PrintPrompts.PASSWORD)
             self.password = validation.validate_password(RegularExp.PASSWORD).encode()

@@ -9,14 +9,14 @@ def error_handling(func):
     '''Decorator for handling errors'''
     def wrapper(*args, **kwargs):
         try: 
-            res = func(*args, **kwargs)
-            if res == False:
+            value = func(*args, **kwargs)
+            if value == False:
                 raise Exception
         except:
             logger.exception("not validated")
             print("Wrong input! Enter again.")
         finally:
-            return res
+            return value
     return wrapper
         
 
