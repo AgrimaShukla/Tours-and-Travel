@@ -7,7 +7,7 @@ from src.config.prompt import PrintPrompts
 from src.config.queries import Query
 from src.database.context_manager import DatabaseConnection
 
-logger = logging.getLogger('__name__')
+logger = logging.getLogger(__name__)
 
 def insert_table(table_1: str, data_table1: tuple, table_2: str, data_table2: tuple, prompt: str) -> None:
     '''Inserting customer data into database'''

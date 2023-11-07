@@ -16,7 +16,7 @@ from src.utils.pretty_print import data_tabulate
 from src.utils.validation import validate
 from src.config.regex_value import RegularExp
 
-logger = logging.getLogger('__name__')
+logger = logging.getLogger(__name__)
 
 class Package:
     '''New Package created'''

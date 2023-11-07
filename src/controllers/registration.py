@@ -10,7 +10,7 @@ from src.config.prompt import PrintPrompts, InputPrompts
 from src.config.regex_value import RegularExp
 from src.database.database_access import insert_table
 
-logger = logging.getLogger('__name__')
+logger = logging.getLogger(__name__)
 
 class Registration:
     '''Registering the customer'''
