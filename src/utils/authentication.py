@@ -26,7 +26,7 @@ class Authentication:
         self.attempts = self.attempts - 1
     
 
-    def user_authentication(self):
+    def user_authentication(self) -> tuple:
         '''Function to authenticate use'''
         while self.attempts > 0: 
             username = input("Enter your username: ")
@@ -50,17 +50,5 @@ class Authentication:
                 continue
 
         print("Attempts exhausted")
-        time.sleep(3)
-        
-
-
-
-                     
-
-
-                
-                    
-
-                
-                
-                
+        time.sleep(3)      
+               

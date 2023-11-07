@@ -9,37 +9,38 @@ def error_handling(func):
     '''Decorator for handling errors'''
     def wrapper(*args, **kwargs):
         try: 
-            matched = func(*args, **kwargs)
-            if matched == False:
+            res = func(*args, **kwargs)
+            if res == False:
                 raise Exception
         except:
             logger.exception("not validated")
             print("Wrong input! Enter again.")
         finally:
-            return matched
+            return res
     return wrapper
         
 
 @error_handling
-def input_validation(regex_exp, value) -> bool:
+def input_validation(regex_exp: str, value: str) -> bool:
     '''matching regex with value'''
-    matched = re.fullmatch(regex_exp, value)
-    if matched != None:
+    result = re.fullmatch(regex_exp, value)
+    if result != None:
         return True
     return False
 
-def validate(prompts, regular_exp):
+def validate(prompts: str, regular_exp: str) -> str:
     '''taking input and pass to input validation'''
     while True:
         value = input(prompts).lower()
-        check = input_validation(regular_exp, value)
-        if check == True:
+        result = input_validation(regular_exp, value)
+        if result == True:
             return value
         
-def validate_password(regex_exp) -> str:
+def validate_password(regex_exp: str) -> str:
     '''validating password should be minimum of length'''
     while True:
         password = maskpass.advpass()
-        check = input_validation(regex_exp, password)
-        if check == True:
+        result = input_validation(regex_exp, password)
+        if result == True:
             return password
+        

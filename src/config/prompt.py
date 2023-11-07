@@ -168,7 +168,6 @@ class InputPrompts:
 
       STATUS = "Enter status (active/inactive): "
 
-      
 class LoggingPrompt:
       '''Prompts for logging'''
 
@@ -179,3 +178,42 @@ class LoggingPrompt:
       NO_PACKAGE = "NO PACKAGE FOUND"
 
       BOOKED = "BOOKED SUCCESSFULLY"
+
+class TabulateHeader:
+      '''Prompts for Tabulate'''
+
+      BOOKING_DATE = "BOOKING DATE"
+
+      CATEGORY = "CATEGORY"
+
+      CITY = "CITY"
+
+      DAY = "DAY"
+
+      DESC = "DESCRIPTION"
+
+      DURATION = "DURATION"
+
+      EMAIL = "EMAIL"
+
+      END_DATE = "END DATE"
+
+      ITINERARY_ID = "ITINERARY ID"
+
+      LIMIT = "LIMIT"
+
+      PACKAGE_ID = "PACKAGE ID"
+
+      PACKAGE_NAME = "PACKAGE NAME"
+
+      MOBILE_NUMBER = "MOBILE NUMBER"
+
+      NAME = "NAME"
+
+      NO_OF_PEOPLE = "NO OF PEOPLE"
+
+      PRICE = "PRICE"
+
+      START_DATE = "START DATE"
+
+      STATUS = "STATUS" 

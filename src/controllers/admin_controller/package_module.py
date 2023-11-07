@@ -10,8 +10,8 @@ import shortuuid
 from src.config.queries import Query 
 from src.utils import validation
 from src.database import database_access
-from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt
-from src.config.prompt_values import update_package
+from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt, TabulateHeader
+from src.config.prompt_values import UPDATE_PACKAGE
 from src.utils.pretty_print import data_tabulate
 from src.utils.validation import validate
 from src.config.regex_value import RegularExp
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 class Package:
     '''New Package created'''
-    def __init__(self):
+    def __init__(self) -> None:
         self.package_id = 'P_' + shortuuid.ShortUUID().random(length = 8)
         self.package_name = validate(InputPrompts.INPUT.format('package name'), RegularExp.STRING_VALUE)
         self.duration = validation.validate(InputPrompts.DURATION, RegularExp.DURATION)
@@ -39,14 +39,14 @@ class Package:
 
 
     @staticmethod
-    def show_package(query_to_execute: str, status: tuple) -> None:
+    def show_package(query_to_execute: str, status: tuple) -> bool:
         '''To display packages'''
         data = database_access.returning_query(query_to_execute, status)
         if not data:
             logger.info(LoggingPrompt.NO_PACKAGE)
             return False
         else:
-            data_tabulate(data, ["PACKAGE_ID", "PACKAGE_NAME", "DURATION", "CATEGORY", "PRICE", "LIMIT", "STATUS"])
+            data_tabulate(data, (TabulateHeader.PACKAGE_ID, TabulateHeader.PACKAGE_NAME, TabulateHeader.DURATION, TabulateHeader.CATEGORY, TabulateHeader.PRICE, TabulateHeader.LIMIT, TabulateHeader.STATUS))
             return True
 
 
@@ -100,11 +100,11 @@ class Package:
                         case _: 
                             print(PrintPrompts.INVALID_PROMPT)
                             continue
-                    column_name = update_package[value]
+                    column_name = UPDATE_PACKAGE[value]
                     data = (updated_value, package_id)
                     database_access.non_returning_query(Query.UPDATE_PACKAGE_QUERY.format(column_name), data, PrintPrompts.UPDATED)
                     break
                 else:
                     print(PrintPrompts.NO_PACKAGE.format(package_id))
         else:
-            print(PrintPrompts.NO_PACKAGE_FOUND)        
+            print(PrintPrompts.NO_PACKAGE_FOUND)   

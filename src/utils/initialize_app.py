@@ -10,7 +10,7 @@ from src.config.queries import Query
 from src.database import database_access
 
 logger = logging.getLogger(__name__)
-def create_admin():
+def create_admin() -> None:
     '''To add admin in the table if non present'''
     with DatabaseConnection('src\\database\\travelmanagementsystem.db') as connection:
         try: 
@@ -33,12 +33,19 @@ def create_admin():
 def create_tables() -> None:
     with DatabaseConnection('src\\database\\travelmanagementsystem.db') as connection:
         '''Creating all tables'''
-        cursor = connection.cursor()
-        cursor.execute(Query.CREATE_CREDENTIALS)
-        cursor.execute(Query.CREATE_ADMIN)
-        cursor.execute(Query.CREATE_CUSTOMER)
-        cursor.execute(Query.CREATE_PACKAGE)
-        cursor.execute(Query.CREATE_ITINERARY)
-        cursor.execute(Query.CREATE_BOOKING)
-        cursor.execute(Query.CREATE_BOOKING_PACKAGE)
+        try:
+            cursor = connection.cursor()
+            cursor.execute(Query.CREATE_CREDENTIALS)
+            cursor.execute(Query.CREATE_ADMIN)
+            cursor.execute(Query.CREATE_CUSTOMER)
+            cursor.execute(Query.CREATE_PACKAGE)
+            cursor.execute(Query.CREATE_ITINERARY)
+            cursor.execute(Query.CREATE_BOOKING)
+            cursor.execute(Query.CREATE_BOOKING_PACKAGE)
+        except sqlite3.IntegrityError as er:
+            logger.exception(er)
+        except sqlite3.OperationalError as er:
+            logger.exception(er)
+        except sqlite3.Error as er:
+            logger.exception(er)
         

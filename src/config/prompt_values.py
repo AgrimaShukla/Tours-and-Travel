@@ -2,7 +2,7 @@
 
 # PROMPTS
 
-destination_dict = {
+DESTINATION_DICT = {
     '1': 'beaches',
     '2': 'monuments',
     '3': 'hill stations',
@@ -10,19 +10,19 @@ destination_dict = {
     '5': 'wild life'
 }
 
-category_dict = {
+CATEGORY_DICT = {
     '1': 'luxury',
     '2': 'mid-range', 
     '3': 'budget'
 }
 
-day_dict = {
+DAY_DICT = {
     '1': '2 days 1 nights',
     '2': '3 days 2 nights', 
     '3': '4 days 3 nights'
 }
 
-update_package = {
+UPDATE_PACKAGE = {
     '1': 'PACKAGE_NAME',
     '2': 'DURATION',
     '3': 'CATEGORY',
@@ -30,7 +30,7 @@ update_package = {
     '5': 'LMT'
 }
 
-update_itinerary = {
+UPDATE_ITINERARY = {
     '1': 'DAY',
     '2': 'CITY',
     '3': 'DESC'

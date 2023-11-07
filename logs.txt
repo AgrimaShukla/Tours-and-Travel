@@ -805,3 +805,4 @@ Traceback (most recent call last):
   File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
     raise Exception
 Exception
+07-11-2023 15:12:18 - Invalid login attempt

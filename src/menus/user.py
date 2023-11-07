@@ -8,7 +8,7 @@ def day_menu(dest_option: str, category_option: str, customer_id: str) -> None:
     while True:
         print(PrintPrompts.DAY_PROMPT)
         option = input(InputPrompts.ENTER)
-        if option in ['1', '2', '3']:
+        if option in ('1', '2', '3'):
             view_package(dest_option, category_option, option, customer_id)
         elif option == '4':
             break
@@ -20,7 +20,7 @@ def category_menu(dest_option: str, customer_id: str) -> None:
     while True:
         print(PrintPrompts.CATEGORY_PROMPT)
         option = input(InputPrompts.ENTER)
-        if option in ['1', '2', '3']:
+        if option in ('1', '2', '3'):
             day_menu(dest_option, option, customer_id)
         elif option == '4':
             break
@@ -32,7 +32,7 @@ def destination_menu(customer_id: str) -> None:
     while True:
         print(PrintPrompts.DESTINATION_PROMPT)
         option = input(InputPrompts.ENTER)
-        if option in ['1', '2', '3', '4', '5']:
+        if option in ('1', '2', '3', '4', '5'):
             category_menu(option, customer_id)
         elif option == '6':
             break
@@ -50,3 +50,4 @@ def user_menu(customer_id: str) -> None:
             case '3': BookPackage.show_booking_package(customer_id)
             case '4': break
             case _: print(PrintPrompts.INVALID_PROMPT)
+            

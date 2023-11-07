@@ -1,7 +1,6 @@
 ''' This module keeps all the queries for database'''
 
 class Query:
-
     '''This class contains all the queries'''
     
     # CREDENTIALS TABLE

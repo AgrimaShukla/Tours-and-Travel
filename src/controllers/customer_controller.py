@@ -3,17 +3,17 @@ from shortuuid import ShortUUID
 import logging
 from datetime import datetime, timedelta
 
-from src.config.prompt_values import destination_dict, category_dict, day_dict
+from src.config.prompt_values import DESTINATION_DICT, CATEGORY_DICT, DAY_DICT
 from src.utils.pretty_print import data_tabulate
 from src.utils import validation
-from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt
+from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt, TabulateHeader
 from src.database import database_access
 from src.config.queries import Query 
 from src.config.regex_value import RegularExp
 
 logger = logging.getLogger(__name__)
 
-def check_date():
+def check_date() -> None:
     '''Checking date if valid or not'''
     print(PrintPrompts.DATE)
     while True:
@@ -79,19 +79,19 @@ class BookPackage:
 
 
     @staticmethod
-    def show_booking_package(customer_id: str):
+    def show_booking_package(customer_id: str) -> tuple:
         '''Display the package of that booking'''
         tuple_of_data = BookPackage.show_booking(Query.SELECT_BOOKING, (customer_id,))
         while True:
             if tuple_of_data:
                 # to display data using tabulate
-                data_tabulate(tuple_of_data[0], ["NAME", "MOBILE_NUMBER", "START DATE", "END DATE", "NO OF PEOPLE", "EMAIL", "BOOKING DATE", "STATUS"])
+                data_tabulate(tuple_of_data[0], (TabulateHeader.NAME, TabulateHeader.MOBILE_NUMBER, TabulateHeader.START_DATE, TabulateHeader.END_DATE, TabulateHeader.NO_OF_PEOPLE, TabulateHeader.EMAIL, TabulateHeader.BOOKING_DATE, TabulateHeader.STATUS))
                 try:
                     option = int(input(InputPrompts.ENTER))
                     if option in tuple_of_data[1]:
                         data = database_access.returning_query(Query.PACKAGE_FROM_BOOKING, (tuple_of_data[1][option], ))
                         # to display data using tabulate
-                        data_tabulate(data, ["DAY", "CITY", "DESCRIPTION"])
+                        data_tabulate(data, (TabulateHeader.DAY, TabulateHeader.CITY, TabulateHeader.DESC))
                         return tuple_of_data[1][option]
                     else: 
                         print(PrintPrompts.INVALID_PROMPT)
@@ -103,13 +103,13 @@ class BookPackage:
 
 
     @staticmethod  
-    def cancel_booking(customer_id) -> None:
+    def cancel_booking(customer_id: str) -> None:
         '''To cancel the booking'''
         tuple_of_data = BookPackage.show_booking(Query.BOOKING_NOT_CANCELLED, (customer_id, 'ongoing'))
         while True:
             if tuple_of_data:
                 # to display using tabulate
-                data_tabulate(tuple_of_data[0], ["NAME", "MOBILE_NUMBER", "START DATE", "END DATE", "NO OF PEOPLE", "EMAIL", "BOOKING DATE"])
+                data_tabulate(tuple_of_data[0], (TabulateHeader.NAME, TabulateHeader.MOBILE_NUMBER, TabulateHeader.START_DATE, TabulateHeader.END_DATE, TabulateHeader.NO_OF_PEOPLE, TabulateHeader.EMAIL, TabulateHeader.BOOKING_DATE))
                 try:
                     option = int(input(InputPrompts.ENTER))
                     if option in tuple_of_data[1]:
@@ -126,9 +126,9 @@ class BookPackage:
 def view_package(destination: str, category: str, days_night: str, customer_id: str) -> None:
     '''To view the package after user preferences'''
 
-    dest_value = destination_dict[destination]
-    category_value = category_dict[category]
-    day_value = day_dict[days_night]
+    dest_value = DESTINATION_DICT[destination]
+    category_value = CATEGORY_DICT[category]
+    day_value = DAY_DICT[days_night]
     
     data = (dest_value, category_value, day_value, 'active')
     itinerary = database_access.returning_query(Query.SELECT_ITINERARY, data)
@@ -145,7 +145,7 @@ def view_package(destination: str, category: str, days_night: str, customer_id: 
 
     price = database_access.single_data_returning_query(Query.SELECT_PRICE, data)
     # using tabulate to display data
-    data_tabulate(filtered_view, ["DAY", "CITY", "DESCRIPTION"])
+    data_tabulate(filtered_view, (TabulateHeader.DAY, TabulateHeader.CITY, TabulateHeader.DESC))
 
     print(PrintPrompts.PRICE.format(price[0]))
     while True:

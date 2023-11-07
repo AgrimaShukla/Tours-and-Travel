@@ -7,8 +7,8 @@ import shortuuid
 
 from src.utils.validation import validate
 from src.config.queries import Query 
-from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt
-from src.config.prompt_values import update_itinerary
+from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt, TabulateHeader
+from src.config.prompt_values import UPDATE_ITINERARY
 from src.database import database_access
 from src.utils.pretty_print import data_tabulate
 from src.config.regex_value import RegularExp
@@ -39,7 +39,7 @@ class Itinerary:
             logger.info(LoggingPrompt.NO_DATA)
             return False
         else:
-            data_tabulate(data, ["PACKAGE_ID", "ITINERARY_ID", "DAY", "CITY", "DESC", "STATUS"])
+            data_tabulate(data, (TabulateHeader.PACKAGE_ID, TabulateHeader.ITINERARY_ID, TabulateHeader.DAY, TabulateHeader.CITY, TabulateHeader.DESC, TabulateHeader.STATUS))
             return True
 
     @staticmethod          
@@ -72,7 +72,7 @@ class Itinerary:
                         case _: 
                             print(PrintPrompts.INVALID_PROMPT)
                             continue
-                    column_name = update_itinerary[value]
+                    column_name = UPDATE_ITINERARY[value]
                     database_access.non_returning_query(Query.UPDATE_ITINERARY_QUERY.format(column_name), (updated_value, itinerary_id), PrintPrompts.UPDATED)
                     break
                 else:

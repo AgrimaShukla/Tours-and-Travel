@@ -1,7 +1,7 @@
 '''This module keeps all the regular expressions'''
 
 class RegularExp:
-    """Regular expressions for validation"""
+    '''Regular expressions for validation'''
 
     AGE = '[1-9][0-9]|10[1-9]'
     DURATION = '^([2-5]\sdays\s[1-4]\snights)$'
