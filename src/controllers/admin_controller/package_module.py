@@ -11,9 +11,10 @@ from src.config.queries import Query
 from src.utils import validation
 from src.database import database_access
 from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt
-from src.config.mapping_values import update_package
-from src.config.pretty_print import data_tabulate
-from src.utils.validation import validate_duration, validate_number, validate_string
+from src.config.prompt_values import update_package
+from src.utils.pretty_print import data_tabulate
+from src.utils.validation import validate
+from src.config.regex_value import RegularExp
 
 logger = logging.getLogger('__name__')
 
@@ -21,12 +22,12 @@ class Package:
     '''New Package created'''
     def __init__(self):
         self.package_id = 'P_' + shortuuid.ShortUUID().random(length = 8)
-        self.package_name = validation.validate_string('package name')
-        self.duration = validation.validate_duration()
-        self.category = validation.validate_string('category')
-        self.price = validation.validate_number('price')
-        self.lmt = validation.validate_number('limit')
-        self.status = validation.validate_status()
+        self.package_name = validate(InputPrompts.INPUT.format('package name'), RegularExp.STRING_VALUE)
+        self.duration = validation.validate(InputPrompts.DURATION, RegularExp.DURATION)
+        self.category = validate(InputPrompts.INPUT.format('category'), RegularExp.STRING_VALUE)
+        self.price = validate(InputPrompts.INPUT.format('price'), RegularExp.NUMBER_VALUE)
+        self.lmt = validate(InputPrompts.INPUT.format('limit'), RegularExp.NUMBER_VALUE)
+        self.status = validation.validate(InputPrompts.STATUS, RegularExp.STATUS)
         self.add_package()
  
 
@@ -45,7 +46,7 @@ class Package:
             logger.info(LoggingPrompt.NO_PACKAGE)
             return False
         else:
-            data_tabulate(data, ["PACKAGE_ID", "PACKAGE_NAME", "DURATION", "CATEGORY", "PRICE", "LIMIT"])
+            data_tabulate(data, ["PACKAGE_ID", "PACKAGE_NAME", "DURATION", "CATEGORY", "PRICE", "LIMIT", "STATUS"])
             return True
 
 
@@ -87,15 +88,15 @@ class Package:
                     value = input(InputPrompts.ENTER)
                     match value:
                         case '1': 
-                            updated_value = validate_string('package name')
+                            updated_value = validate(InputPrompts.INPUT.format('package name'), RegularExp.STRING_VALUE)
                         case '2': 
-                            updated_value = validate_duration()
+                            updated_value = validate(InputPrompts.DURATION, RegularExp.DURATION)
                         case '3':
-                            updated_value = validate_string('category')
+                            updated_value = validate(InputPrompts.INPUT.format('category'), RegularExp.STRING_VALUE)
                         case '4':
-                            updated_value = validate_number('price')
+                            updated_value = validate(InputPrompts.INPUT.format('price'), RegularExp.NUMBER_VALUE)
                         case '5':
-                            updated_value = validate_number('Limit')
+                            updated_value = validate(InputPrompts.INPUT.format('LIMIT'), RegularExp.NUMBER_VALUE)
                         case _: 
                             print(PrintPrompts.INVALID_PROMPT)
                             continue

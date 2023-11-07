@@ -150,6 +150,7 @@ class PrintPrompts:
 
 class InputPrompts:
       '''All the prompts used when taking input'''
+      INPUT = "Enter {}: "
 
       ENTER = "ENTER: "
 
@@ -157,6 +158,17 @@ class InputPrompts:
 
       PACKAGE_ID = "PACKAGE ID: "
 
+      DURATION = "Enter duration (Eg - 3 days 2 nights): "
+
+      EMAIL = "Enter email (Eg: - abc@gmail.com): "
+
+      GENDER = "Enter gender (Eg - male|female|other): "
+
+      NO_OF_PEOPLE = "Enter number of people (10 or less): "
+
+      STATUS = "Enter status (active/inactive): "
+
+      
 class LoggingPrompt:
       '''Prompts for logging'''
 

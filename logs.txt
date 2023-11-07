@@ -687,3 +687,121 @@ Traceback (most recent call last):
   File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
     raise Exception
 Exception
+03-11-2023 16:22:53 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+03-11-2023 16:23:13 - <class 'ValueError'>
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\controllers\customer_controller.py", line 21, in check_date
+    start_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data '287e8' does not match format '%Y-%m-%d'
+03-11-2023 16:23:47 - BOOKED SUCCESSFULLY
+03-11-2023 16:28:25 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+03-11-2023 16:28:53 - ADDED PACKAGE
+06-11-2023 14:23:49 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:24:10 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:24:19 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:24:30 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:25:34 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:26:00 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:26:38 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:26:45 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:26:55 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:27:00 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:27:13 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:27:16 - ADDED PACKAGE
+06-11-2023 14:27:48 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:28:46 - Invalid login attempt
+06-11-2023 14:32:06 - Invalid login attempt
+06-11-2023 14:32:51 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:32:59 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:33:03 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+06-11-2023 14:33:09 - <class 'ValueError'>
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\controllers\customer_controller.py", line 22, in check_date
+    start_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data 'hsi239' does not match format '%Y-%m-%d'
+06-11-2023 14:33:28 - BOOKED SUCCESSFULLY
+07-11-2023 12:01:06 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception

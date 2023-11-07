@@ -5,12 +5,13 @@
 import logging
 import shortuuid
 
-from src.utils.validation import validate_number, validate_string
+from src.utils.validation import validate
 from src.config.queries import Query 
 from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt
-from src.config.mapping_values import update_itinerary
+from src.config.prompt_values import update_itinerary
 from src.database import database_access
-from src.config.pretty_print import data_tabulate
+from src.utils.pretty_print import data_tabulate
+from src.config.regex_value import RegularExp
 
 logger = logging.getLogger(__name__)
 
@@ -19,9 +20,9 @@ class Itinerary:
     def __init__(self, package_id: str) -> None:
         self.itinerary_id = "I_" + shortuuid.ShortUUID().random(length = 8)
         self.package_id = package_id
-        self.day = validate_number('day')
-        self.city = validate_string('city')
-        self.desc = validate_string('description')
+        self.day = validate(InputPrompts.INPUT.format('day'), RegularExp.NUMBER_VALUE)
+        self.city = validate(InputPrompts.INPUT.format('city'), RegularExp.STRING_VALUE)
+        self.desc = validate(InputPrompts.INPUT.format('description'), RegularExp.STRING_VALUE)
         self.add_itinerary()
 
     def add_itinerary(self) -> None:
@@ -63,11 +64,11 @@ class Itinerary:
                     value = input(InputPrompts.ENTER)
                     match value:
                         case '1': 
-                            updated_value = validate_number('days')
+                            updated_value = validate(InputPrompts.INPUT.format('day'), RegularExp.NUMBER_VALUE)
                         case '2':
-                            updated_value = validate_string('city')
+                            updated_value = validate(InputPrompts.INPUT.format('city'), RegularExp.STRING_VALUE)
                         case '3':
-                            updated_value = validate_string('description')
+                            updated_value = validate(InputPrompts.INPUT.format('description'), RegularExp.STRING_VALUE)
                         case _: 
                             print(PrintPrompts.INVALID_PROMPT)
                             continue

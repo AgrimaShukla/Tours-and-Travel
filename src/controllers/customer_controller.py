@@ -3,12 +3,13 @@ from shortuuid import ShortUUID
 import logging
 from datetime import datetime, timedelta
 
-from src.config.mapping_values import destination_dict, category_dict, day_dict
-from src.config.pretty_print import data_tabulate
+from src.config.prompt_values import destination_dict, category_dict, day_dict
+from src.utils.pretty_print import data_tabulate
 from src.utils import validation
 from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt
 from src.database import database_access
 from src.config.queries import Query 
+from src.config.regex_value import RegularExp
 
 logger = logging.getLogger(__name__)
 
@@ -37,12 +38,12 @@ class BookPackage:
             self.customer_id = customer_id
             self.price = price
             self.booking_id = "B_" + ShortUUID().random(length = 10)
-            self.name = validation.validate_name()
-            self.mobile_no = validation.validate_mobile_number()
+            self.name = validation.validate(InputPrompts.INPUT.format("name"), RegularExp.NAME)
+            self.mobile_no = validation.validate(InputPrompts.INPUT.format("mobile no"), RegularExp.MOBILE_NUMBER)
             start_date = check_date()
             self.end_date = start_date + timedelta(days = days_night)
-            self.number_of_people = validation.validate_person()
-            self.email = validation.validate_email()
+            self.number_of_people = validation.validate(InputPrompts.NO_OF_PEOPLE, RegularExp.PERSON)
+            self.email = validation.validate(InputPrompts.EMAIL, RegularExp.EMAIL)
             self.booking_date = datetime.now().date()
             data = (self.booking_id, self.name, self.mobile_no, start_date, self.end_date, self.number_of_people, self.email, self.booking_date)
             self.add_booking(data)
@@ -145,6 +146,7 @@ def view_package(destination: str, category: str, days_night: str, customer_id: 
     price = database_access.single_data_returning_query(Query.SELECT_PRICE, data)
     # using tabulate to display data
     data_tabulate(filtered_view, ["DAY", "CITY", "DESCRIPTION"])
+
     print(PrintPrompts.PRICE.format(price[0]))
     while True:
         print(PrintPrompts.BOOKING)
