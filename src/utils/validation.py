@@ -29,13 +29,13 @@ def input_validation(regex_exp: str, value: str) -> bool:
     return False
 
 def validate(prompts: str, regular_exp: str) -> str:
-    '''taking input and pass to input validation'''
+    '''taking input and passing to input validation'''
     while True:
         value = input(prompts).lower()
         result = input_validation(regular_exp, value)
         if result == True:
             return value
-        
+
 def validate_password(regex_exp: str) -> str:
     '''validating password should be minimum of length'''
     while True:
@@ -43,4 +43,11 @@ def validate_password(regex_exp: str) -> str:
         result = input_validation(regex_exp, password)
         if result == True:
             return password
-        
+
+def validate_uuid(prompts: str, regex_exp: str) -> str:
+    '''validating unique id'''
+    while True:
+        uuid = input(prompts)
+        result = input_validation(regex_exp, uuid)
+        if result == True:
+            return uuid

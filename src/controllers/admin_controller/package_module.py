@@ -8,12 +8,11 @@ import logging
 import shortuuid
 
 from src.config.queries import Query 
-from src.utils import validation
 from src.database import database_access
 from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt, TabulateHeader
 from src.config.prompt_values import UPDATE_PACKAGE
 from src.utils.pretty_print import data_tabulate
-from src.utils.validation import validate
+from src.utils.validation import validate, validate_uuid
 from src.config.regex_value import RegularExp
 
 logger = logging.getLogger(__name__)
@@ -23,11 +22,11 @@ class Package:
     def __init__(self) -> None:
         self.package_id = 'P_' + shortuuid.ShortUUID().random(length = 8)
         self.package_name = validate(InputPrompts.INPUT.format('package name'), RegularExp.STRING_VALUE)
-        self.duration = validation.validate(InputPrompts.DURATION, RegularExp.DURATION)
+        self.duration = validate(InputPrompts.DURATION, RegularExp.DURATION)
         self.category = validate(InputPrompts.INPUT.format('category'), RegularExp.STRING_VALUE)
         self.price = validate(InputPrompts.INPUT.format('price'), RegularExp.NUMBER_VALUE)
         self.lmt = validate(InputPrompts.INPUT.format('limit'), RegularExp.NUMBER_VALUE)
-        self.status = validation.validate(InputPrompts.STATUS, RegularExp.STATUS)
+        self.status = validate(InputPrompts.STATUS, RegularExp.STATUS)
         self.add_package()
  
 
@@ -80,7 +79,7 @@ class Package:
         # if-else to check if table is empty or not
         if not_exist_package == True:
             while True:
-                package_id = input(InputPrompts.PACKAGE_ID)
+                package_id = validate_uuid(InputPrompts.PACKAGE_ID, RegularExp.UUID)
                 # to check if package exists or not
                 data = Package.check_package((package_id, ))
                 if data:

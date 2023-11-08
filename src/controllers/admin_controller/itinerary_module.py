@@ -5,7 +5,7 @@
 import logging
 import shortuuid
 
-from src.utils.validation import validate
+from src.utils.validation import validate, validate_uuid
 from src.config.queries import Query 
 from src.config.prompt import PrintPrompts, InputPrompts, LoggingPrompt, TabulateHeader
 from src.config.prompt_values import UPDATE_ITINERARY
@@ -56,7 +56,7 @@ class Itinerary:
         # if else to check if table is empty or not
         if not_exist_ititnerary == True:
             while True:
-                itinerary_id = input(InputPrompts.ITINERARY_ID)
+                itinerary_id = validate_uuid(InputPrompts.ITINERARY_ID, RegularExp.UUID)
                 # to check if itinerary exists or not of given id
                 data = Itinerary.check_itinerary(itinerary_id)
                 if data:

@@ -15,3 +15,4 @@ class RegularExp:
     STATUS = r'active|inactive'
     STRING_VALUE = r'^([A-Za-z]{2,25}\s*)+'
     USERNAME =  r'[A-Za-z0-9._]{2,30}'
+    UUID = r'^[A-Za-z0-9_]+$'

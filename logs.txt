@@ -962,3 +962,52 @@ Traceback (most recent call last):
     raise Exception
 Exception
 07-11-2023 22:42:24 - BOOKED SUCCESSFULLY
+07-11-2023 23:20:43 - Invalid login attempt
+07-11-2023 23:21:13 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+07-11-2023 23:21:35 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+07-11-2023 23:22:19 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+07-11-2023 23:22:36 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+07-11-2023 23:23:03 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+07-11-2023 23:23:15 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+08-11-2023 08:51:19 - Invalid login attempt
+08-11-2023 08:51:52 - ADDED PACKAGE
+08-11-2023 09:15:46 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+08-11-2023 09:16:21 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+08-11-2023 09:16:30 - not validated
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\validation.py", line 14, in wrapper
+    raise Exception
+Exception
+08-11-2023 09:18:20 - Invalid login attempt

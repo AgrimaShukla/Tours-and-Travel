@@ -173,3 +173,8 @@ class Query:
                     WHERE booking_package.customer_id = ? AND booking_package.trip_status = ?
                     '''
     PACKAGE_FROM_BOOKING = '''SELECT day, city, desc FROM itinerary WHERE package_id IN (SELECT package_id FROM booking_package WHERE booking_id = ?)'''
+
+class DatabaseConfig:
+    '''Database path'''
+    
+    DB_PATH = 'src\\database\\travelmanagementsystem.db'
