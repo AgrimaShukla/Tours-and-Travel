@@ -3,7 +3,6 @@
 import time
 import hashlib
 import logging
-import maskpass
 
 from src.database.database_access import single_data_returning_query
 from src.utils import validation
