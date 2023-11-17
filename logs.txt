@@ -1492,3 +1492,15 @@ Traceback (most recent call last):
   File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\initialize_app.py", line 41, in create_admin
     cursor.execute(Query.INSERT_ADMIN, admin_info)
 sqlite3.IntegrityError: UNIQUE constraint failed: admin.email
+17-11-2023 11:58:51 - UNIQUE constraint failed: admin.email
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\initialize_app.py", line 41, in create_admin
+    cursor.execute(Query.INSERT_ADMIN, admin_info)
+sqlite3.IntegrityError: UNIQUE constraint failed: admin.email
+17-11-2023 11:59:36 - BOOKED SUCCESSFULLY
+17-11-2023 12:01:27 - USER REGISTERED
+17-11-2023 12:01:39 - UNIQUE constraint failed: admin.email
+Traceback (most recent call last):
+  File "c:\Users\ashukla\OneDrive - WatchGuard Technologies Inc\Desktop\Minor project\minor_project\src\utils\initialize_app.py", line 41, in create_admin
+    cursor.execute(Query.INSERT_ADMIN, admin_info)
+sqlite3.IntegrityError: UNIQUE constraint failed: admin.email
