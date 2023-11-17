@@ -30,7 +30,7 @@ class Authentication:
         '''Function to authenticate use'''
         while self.attempts > 0: 
             username = input("Enter your username: ")
-            password = maskpass.advpass().encode()
+            password = maskpass.askpass().encode()
             password = hashlib.md5(password).hexdigest()
             data = (username, )
             user_data = single_data_returning_query(Query.SELECT_CREDENTIALS_USERNAME, data)
